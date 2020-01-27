@@ -2,31 +2,31 @@ package callbackhell;
 
 public class SolveComplexProcess {
 
-	static final int FASE_ONE = 1;
-	static final int FASE_TWO = 2;
-	static final int FASE_THREE = 3;
-	static final int FASE_FOUR = 4;
-	static final int FASE_FIVE = 5;
-	static final int FINAL_FASE = 6;
+	static final int PHASE_ONE = 1;
+	static final int PHASE_TWO = 2;
+	static final int PHASE_THREE = 3;
+	static final int PHASE_FOUR = 4;
+	static final int PHASE_FIVE = 5;
+	static final int FINAL_PHASE = 6;
 
-	public void execFase(int fase, Object result) {
+	public void execPhase(int fase, Object result) {
 		switch (fase) {
-		case FASE_ONE:
-			faseOne();
+		case PHASE_ONE:
+			phaseOne();
 			break;
-		case FASE_TWO:
-			faseTwo(result);
+		case PHASE_TWO:
+			phaseTwo(result);
 			break;
-		case FASE_THREE:
-			faseThree(result);
+		case PHASE_THREE:
+			phaseThree(result);
 			break;
-		case FASE_FOUR:
-			faseFour(result);
+		case PHASE_FOUR:
+			phaseFour(result);
 			break;
-		case FASE_FIVE:
-			faseFive(result);
+		case PHASE_FIVE:
+			phaseFive(result);
 			break;
-		case FINAL_FASE:
+		case FINAL_PHASE:
 			System.out.println(result);
 			break;
 		default:
@@ -34,7 +34,7 @@ public class SolveComplexProcess {
 			break;
 		}
 	}
-	private void faseOne() {
+	private void phaseOne() {
 		new BackgroundProcess(new Process() {
 
 			@Override
@@ -44,16 +44,16 @@ public class SolveComplexProcess {
 
 			@Override
 			public void onResult(Object result) {
-				execFase(FASE_TWO, result);
+				execPhase(PHASE_TWO, result);
 			}
 
 			@Override
 			public void onError(Exception error) {
-				error(FASE_ONE, error);
+				error(PHASE_ONE, error);
 			}
 		}).start();
 	}
-	private void faseTwo(final Object previousResult) {
+	private void phaseTwo(final Object previousResult) {
 		new BackgroundProcess(new Process() {
 
 			@Override
@@ -63,18 +63,18 @@ public class SolveComplexProcess {
 
 			@Override
 			public void onResult(Object result) {
-				execFase(FASE_THREE, result);
+				execPhase(PHASE_THREE, result);
 			}
 
 			@Override
 			public void onError(Exception error) {
-				error(FASE_TWO, error);
+				error(PHASE_TWO, error);
 			}
 		}).start();
 
 	}
 
-	private void faseThree(final Object previousResult) {
+	private void phaseThree(final Object previousResult) {
 		new BackgroundProcess(new Process() {
 
 			@Override
@@ -84,18 +84,18 @@ public class SolveComplexProcess {
 
 			@Override
 			public void onResult(Object result) {
-				execFase(FASE_FOUR, result);
+				execPhase(PHASE_FOUR, result);
 			}
 
 			@Override
 			public void onError(Exception error) {
-				error(FASE_THREE, error);
+				error(PHASE_THREE, error);
 			}
 		}).start();
 
 	}
 	
-	private void faseFour(final Object previousResult) {
+	private void phaseFour(final Object previousResult) {
 		new BackgroundProcess(new Process() {
 
 			@Override
@@ -105,18 +105,18 @@ public class SolveComplexProcess {
 
 			@Override
 			public void onResult(Object result) {
-				execFase(FASE_FIVE, result);
+				execPhase(PHASE_FIVE, result);
 			}
 
 			@Override
 			public void onError(Exception error) {
-				error(FASE_FOUR, error);
+				error(PHASE_FOUR, error);
 			}
 		}).start();
 
 	}
 	
-	private void faseFive(final Object previousResult) {
+	private void phaseFive(final Object previousResult) {
 		new BackgroundProcess(new Process() {
 
 			@Override
@@ -126,12 +126,12 @@ public class SolveComplexProcess {
 
 			@Override
 			public void onResult(Object result) {
-				execFase(FINAL_FASE, result);
+				execPhase(FINAL_PHASE, result);
 			}
 
 			@Override
 			public void onError(Exception error) {
-				error(FASE_FIVE, error);
+				error(PHASE_FIVE, error);
 			}
 		}).start();
 	}
