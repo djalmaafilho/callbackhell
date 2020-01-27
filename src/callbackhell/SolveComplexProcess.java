@@ -1,6 +1,6 @@
 package callbackhell;
 
-public class ComplexProcess {
+public class SolveComplexProcess {
 
 	static final int FASE_ONE = 1;
 	static final int FASE_TWO = 2;

@@ -1,6 +1,6 @@
 package callbackhell;
 
-public class ComplexProcessWithDTO {
+public class SolveWithDTO {
 
 	static final int FASE_ONE = 1;
 	static final int FASE_TWO = 2;
