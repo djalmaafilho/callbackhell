@@ -1,6 +1,6 @@
 package callbackhell;
 
-public class ProcessPOC {
+public class CallbackHellExample {
 
 	public static void main(String[] args) {
 		new BackgroundProcess(new Process() {
